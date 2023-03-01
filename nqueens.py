@@ -6,13 +6,13 @@ class nQueenSolver:
 
     def isSafeToPlace(self, row, col, board):
         for i in range(col):
-            if board[row][i] == "Q":
+            if board[row][i] == "♛":
                 return False
         
         i = row-1
         j = col-1
         while(i>=0 and j>=0):
-            if board[i][j] == "Q":
+            if board[i][j] == "♛":
                 return False
             i -= 1
             j -= 1
@@ -20,7 +20,7 @@ class nQueenSolver:
         i = row
         j = col      
         while(i < len(board) and j>=0):
-            if board[i][j] == "Q":
+            if board[i][j] == "♛":
                 return False
             i += 1
             j -= 1
@@ -47,7 +47,7 @@ class nQueenSolver:
         for row in range(size):
             if self.isSafeToPlace(row, col, board):
                 temp = board[row]
-                board[row] = " " * col + "Q" + " "*(size-1-col)
+                board[row] = " " * col + "♛" + " "*(size-1-col)
                 self.rf(col+1, board, size, allBoards)
                 board[row] = temp
         
